@@ -1,4 +1,4 @@
-.Sidebar {
+.sidebar {
 	display: flex;
 	flex-direction: column;
 	flex: 0.35;
@@ -53,4 +53,10 @@
 
 .sidebar-search-container > input[placeholder] {
 	width: 100% !important;
+}
+
+.sidebar-chat {
+	flex: 1;
+	background-color: white;
+	overflow: scroll;
 }
