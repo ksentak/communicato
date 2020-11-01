@@ -1,3 +1,6 @@
+// Components
+import SidebarChat from './SidebarChat';
+
 // Material UI
 import { Avatar, IconButton } from '@material-ui/core';
 
@@ -12,7 +15,7 @@ import '../css/Sidebar.css';
 
 const Sidebar = () => {
 	return (
-		<div className="Sidebar">
+		<div className="sidebar">
 			<div className="sidebar-header">
 				<Avatar />
 				<div className="sidebar-icons">
@@ -34,6 +37,12 @@ const Sidebar = () => {
 					<SearchOutlined />
 					<input placeholder="Search or start new chat" type="text" />
 				</div>
+			</div>
+
+			<div className="sidebar-chat">
+				<SidebarChat />
+				<SidebarChat />
+				<SidebarChat />
 			</div>
 		</div>
 	);
