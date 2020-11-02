@@ -15,10 +15,10 @@ import '../css/Sidebar.css';
 
 const Sidebar = () => {
 	return (
-		<div className="sidebar">
-			<div className="sidebar-header">
+		<div className='sidebar'>
+			<div className='sidebar-header'>
 				<Avatar />
-				<div className="sidebar-icons">
+				<div className='sidebar-icons'>
 					<IconButton>
 						<DonutLargeIcon />
 					</IconButton>
@@ -29,17 +29,17 @@ const Sidebar = () => {
 						<MoreVertIcon />
 					</IconButton>
 				</div>
-				<div className="sidebar-avatar"></div>
+				<div className='sidebar-avatar'></div>
 			</div>
 
-			<div className="sidebar-search">
-				<div className="sidebar-search-container">
+			<div className='sidebar-search'>
+				<div className='sidebar-search-container'>
 					<SearchOutlined />
-					<input placeholder="Search or start new chat" type="text" />
+					<input placeholder='Search or start new chat' type='text' />
 				</div>
 			</div>
 
-			<div className="sidebar-chat">
+			<div className='sidebar-chat'>
 				<SidebarChat />
 				<SidebarChat />
 				<SidebarChat />
