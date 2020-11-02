@@ -1,6 +1,7 @@
 // Imports
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const Pusher = require('pusher');
 const Message = require('./models/Message');
 require('dotenv').config();
@@ -19,6 +20,7 @@ const pusher = new Pusher({
 
 // Middleware
 app.use(express.json());
+app.use(cors());
 
 // Db connection
 const mongoConn = process.env.MONGODB_CONNECTION;
