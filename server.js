@@ -37,13 +37,14 @@ mongoose
 		const changeStream = msgCollection.watch();
 
 		changeStream.on('change', (change) => {
-			console.log(change);
+			// console.log(change);
 
 			if (change.operationType === 'insert') {
 				const messageDetails = change.fullDocument;
 				pusher.trigger('messages', 'inserted', {
 					name: messageDetails.name,
-					message: messageDetails.message
+					message: messageDetails.message,
+					timestamp: messageDetails.timestamp
 				});
 			} else {
 				console.log('An error occurred when triggering Pusher');
