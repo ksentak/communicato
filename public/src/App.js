@@ -5,8 +5,8 @@ import './css/App.css';
 
 const App = () => {
 	return (
-		<div className="App">
-			<div className="app-body">
+		<div className='App'>
+			<div className='app-body'>
 				<Sidebar />
 				<Chat />
 			</div>
