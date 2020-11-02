@@ -7,6 +7,6 @@ const messageSchema = mongoose.Schema({
 	received: Boolean
 });
 
-const Message = mongoose.model('savedMessages', messageSchema);
+const Message = mongoose.model('savedmessages', messageSchema);
 
 module.exports = Message;
