@@ -7,7 +7,7 @@ import MicIcon from '@material-ui/icons/Mic';
 // CSS
 import '../css/Chat.css';
 
-const Chat = () => {
+const Chat = ({ messages }) => {
 	return (
 		<div className='chat'>
 			<div className='chat-header'>
@@ -31,17 +31,13 @@ const Chat = () => {
 			</div>
 
 			<div className='chat-body'>
-				<p className='chat-message'>
-					<span className='chat-name'>Keaton</span>
-					This is a message
-					<span className='chat-timestamp'>{new Date().toUTCString()}</span>
-				</p>
-
-				<p className='chat-message chat-send'>
-					<span className='chat-name'>Keaton</span>
-					This is a message
-					<span className='chat-timestamp'>{new Date().toUTCString()}</span>
-				</p>
+				{messages.map((message) => (
+					<p className={`chat-message ${!message.received && 'chat-sent'}`}>
+						<span className='chat-name'>{message.name}</span>
+						{message.message}
+						<span className='chat-timestamp'>{message.timestamp}</span>
+					</p>
+				))}
 			</div>
 
 			<div className='chat-footer'>

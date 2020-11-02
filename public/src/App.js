@@ -9,7 +9,7 @@ import axios from './utils/API';
 // CSS
 import './css/App.css';
 
-const App = () => {
+const App = (props) => {
 	const [messages, setMessages] = useState([]);
 
 	useEffect(() => {
@@ -40,7 +40,7 @@ const App = () => {
 		<div className='App'>
 			<div className='app-body'>
 				<Sidebar />
-				<Chat />
+				<Chat messages={messages} />
 			</div>
 		</div>
 	);
