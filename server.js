@@ -15,9 +15,16 @@ app.use(express.json());
 const mongoConn = process.env.MONGODB_CONNECTION;
 
 mongoose
-	.connect(mongoConn, { useNewUrlParser: true, useUnifiedTopology: true })
-	.then(() => console.log('MongoDB Connected!'))
-	.catch((err) => console.log(err));
+	.connect(mongoConn, {
+		useNewUrlParser: true,
+		useUnifiedTopology: true
+	})
+	.then(() => {
+		console.log('MongoDB Connected!');
+	})
+	.catch((err) => {
+		console.log(err);
+	});
 
 // ??
 
