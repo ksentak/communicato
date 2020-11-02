@@ -1,6 +1,7 @@
 // Imports
 const express = require('express');
 const mongoose = require('mongoose');
+const Message = require('./models/Message');
 require('dotenv').config();
 
 // App config
@@ -8,7 +9,6 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // Middleware
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Db connection
@@ -31,6 +31,18 @@ mongoose
 // API routes
 app.get('/', (req, res) => {
 	res.send('Hello World');
+});
+
+app.post('/api/v1/messages/new', (req, res) => {
+	const dbMessage = req.body;
+
+	Message.create(dbMessage, (err, data) => {
+		if (err) {
+			res.status(500).send(err);
+		} else {
+			res.status(201).send(data);
+		}
+	});
 });
 
 // App listening
