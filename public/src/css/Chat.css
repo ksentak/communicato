@@ -1,5 +1,26 @@
-.Chat {
+.chat {
 	display: flex;
 	flex-direction: column;
 	flex: 0.65;
+}
+
+.chat-header {
+	padding: 20px;
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid lightgray;
+}
+
+.chat-headerInfo {
+	flex: 1;
+	padding-left: 20px;
+}
+
+.chat-headerInfo > h3 {
+	margin-bottom: 3px;
+	font-weight: 500;
+}
+
+.chat-headerInfo > p {
+	color: gray;
 }
