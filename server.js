@@ -33,6 +33,16 @@ app.get('/', (req, res) => {
 	res.send('Hello World');
 });
 
+app.get('/api/v1/messages/sync', (req, res) => {
+	Message.find((err, data) => {
+		if (err) {
+			res.status(500).send(err);
+		} else {
+			res.status(200).send(data);
+		}
+	});
+});
+
 app.post('/api/v1/messages/new', (req, res) => {
 	const dbMessage = req.body;
 
@@ -47,5 +57,5 @@ app.post('/api/v1/messages/new', (req, res) => {
 
 // App listening
 app.listen(port, () => {
-	console.log(`Server is running on port: ${port}`);
+	console.log(`Server is running on port ${port}`);
 });
