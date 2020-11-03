@@ -22,7 +22,7 @@ const pusher = new Pusher({
 app.use(express.json());
 app.use(cors());
 
-// Db connection
+// Mongo connection
 const mongoConn = process.env.MONGODB_CONNECTION;
 
 mongoose
