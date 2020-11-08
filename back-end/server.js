@@ -43,7 +43,6 @@ mongoose
 			if (change.operationType === 'insert') {
 				const messageDetails = change.fullDocument;
 				pusher.trigger('messages', 'inserted', {
-					// id: messageDetails.id,
 					name: messageDetails.name,
 					message: messageDetails.message,
 					timestamp: messageDetails.timestamp,
@@ -59,9 +58,9 @@ mongoose
 	});
 
 // API routes
-app.get('/', (req, res) => {
-	res.send('Hello World');
-});
+// app.get('/', (req, res) => {
+// 	res.send('Hello World');
+// });
 
 app.get('/api/v1/messages/sync', (req, res) => {
 	Message.find((err, data) => {

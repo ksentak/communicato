@@ -34,7 +34,7 @@ const ChatRoom = (props) => {
 		};
 	}, [messages]);
 
-	console.log(messages);
+	// console.log(messages);
 
 	return (
 		<div className='chatRoom'>

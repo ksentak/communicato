@@ -14,11 +14,15 @@ import '../css/Sidebar.css';
 
 const Sidebar = () => {
 	const [rooms, setRooms] = useState([]);
+
 	useEffect(() => {
 		axios
 			.get('/api/v1/rooms/all')
 			.then((res) => {
-				console.log(res);
+				const roomArr = res.data;
+				setRooms(roomArr);
+
+				console.log(rooms);
 			})
 			.catch((err) => {
 				console.log(err);
