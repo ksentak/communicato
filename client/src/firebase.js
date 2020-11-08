@@ -1,4 +1,4 @@
-import firebase from 'firebase';
+// import firebase from 'firebase';
 
 const firebaseConfig = {
 	apiKey: process.env.REACT_APP_APIKEY,
@@ -10,7 +10,7 @@ const firebaseConfig = {
 	appId: process.env.REACT_APP_APPID
 };
 
-//  const auth = firebase.auth();
-const provider = new firebase.auth.GoogleAuthProvider();
+// const auth = firebase.auth();
+// const provider = new firebase.auth.GoogleAuthProvider();
 
-export { auth, provider };
+// export { auth, provider };

@@ -1,48 +1,17 @@
 // Imports
-import { useEffect, useState } from 'react';
-import Pusher from 'pusher-js';
-// Components
-import Sidebar from './components/Sidebar';
-import Chat from './components/Chat';
-// Utils
-import axios from './utils/API';
-// CSS
-import './css/App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+// Pages
+import Auth from './pages/Auth';
+import ChatRoom from './pages/ChatRoom';
 
-const App = (props) => {
-	const [messages, setMessages] = useState([]);
-
-	useEffect(() => {
-		axios.get('/api/v1/messages/sync').then((res) => {
-			setMessages(res.data);
-		});
-	}, []);
-
-	useEffect(() => {
-		const pusher = new Pusher(process.env.REACT_APP_PUSHER, {
-			cluster: 'us2'
-		});
-
-		const channel = pusher.subscribe('messages');
-		channel.bind('inserted', (newMessage) => {
-			setMessages([...messages, newMessage]);
-		});
-
-		return () => {
-			channel.unbind_all();
-			channel.unsubscribe();
-		};
-	}, [messages]);
-
-	console.log(messages);
-
+const App = () => {
 	return (
-		<div className='App'>
-			<div className='app-body'>
-				<Sidebar />
-				<Chat messages={messages} />
-			</div>
-		</div>
+		<Router>
+			<Switch>
+				<Route exact path='/' component={Auth} />
+				<Route exact path='/chatroom' component={ChatRoom} />
+			</Switch>
+		</Router>
 	);
 };
 

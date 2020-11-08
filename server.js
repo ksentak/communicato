@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const Pusher = require('pusher');
 const Message = require('./models/Message');
+const Rooms = require('./models/Rooms');
 require('dotenv').config();
 
 // App config
@@ -42,6 +43,7 @@ mongoose
 			if (change.operationType === 'insert') {
 				const messageDetails = change.fullDocument;
 				pusher.trigger('messages', 'inserted', {
+					id: messageDetails.id,
 					name: messageDetails.name,
 					message: messageDetails.message,
 					timestamp: messageDetails.timestamp,
@@ -79,6 +81,16 @@ app.post('/api/v1/messages/new', (req, res) => {
 			res.status(500).send(err);
 		} else {
 			res.status(201).send(data);
+		}
+	});
+});
+
+app.get('/api/v1/rooms/all', (req, res) => {
+	Rooms.find((err, data) => {
+		if (err) {
+			res.status(500).send(err);
+		} else {
+			res.status(200).send(data);
 		}
 	});
 });
