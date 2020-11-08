@@ -51,11 +51,15 @@ const Chat = ({ messages }) => {
 				{messages.map((message) => (
 					<p
 						className={`chat-message ${!message.received && 'chat-sent'}`}
-						key={message.id}
+						key={message._id}
 					>
-						<span className='chat-name'>{message.name}</span>
+						<span key={`nameId${message._id}`} className='chat-name'>
+							{message.name}
+						</span>
 						{message.message}
-						<span className='chat-timestamp'>{message.timestamp}</span>
+						<span key={`messageId${message._id}`} className='chat-timestamp'>
+							{message.timestamp}
+						</span>
 					</p>
 				))}
 			</div>

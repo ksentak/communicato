@@ -43,7 +43,7 @@ mongoose
 			if (change.operationType === 'insert') {
 				const messageDetails = change.fullDocument;
 				pusher.trigger('messages', 'inserted', {
-					id: messageDetails.id,
+					// id: messageDetails.id,
 					name: messageDetails.name,
 					message: messageDetails.message,
 					timestamp: messageDetails.timestamp,
